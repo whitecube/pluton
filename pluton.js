@@ -27,7 +27,7 @@ export default class Pluton {
         var obj = {};
         context.keys().forEach(key => {
             let code = context(key);
-            obj[code.default.name] = code.default;
+            obj[code.default.selector] = code.default;
         });
         return obj;
     }
