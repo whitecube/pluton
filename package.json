@@ -1,0 +1,25 @@
+{
+  "name": "whitecube-pluton",
+  "version": "1.0.0",
+  "description": "A javascript dispatcher that links JS classes to dom elements",
+  "main": "pluton.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whiteCube/pluton.git"
+  },
+  "keywords": [
+    "whitecube",
+    "pluton",
+    "js",
+    "dispatcher"
+  ],
+  "author": "whitecube",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/whiteCube/pluton/issues"
+  },
+  "homepage": "https://github.com/whiteCube/pluton#readme"
+}
