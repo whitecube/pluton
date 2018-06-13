@@ -93,8 +93,8 @@ If you need to call a method on one of your classes from wherever you defined yo
 It works like this: 
 ```js
 let pluton = new Pluton();
-pluton.call('Counter', 'reset'); // Without parameter
-pluton.call('Counter', 'increment', 5); // With parameter
+pluton.call('.counter', 'reset'); // Without parameter
+pluton.call('.counter', 'increment', 5); // With parameter
 ```
 
 
