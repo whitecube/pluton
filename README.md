@@ -73,6 +73,9 @@ module.exports = {
 ```
 
 ### With Laravel Mix
+The easiest method is to use the `laravel-mix-pluton` extension, [which can be found here](https://github.com/voidgraphics/laravel-mix-pluton).
+
+If you need to do it manually:
 ```js
 let pluton_path = __dirname + '/resources/assets/js/parts';
 
