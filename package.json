@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/whiteCube/pluton.git"
+    "url": "git://github.com/whitecube/pluton.git"
   },
   "keywords": [
     "whitecube",
@@ -19,7 +19,8 @@
   "author": "whitecube",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/whiteCube/pluton/issues"
+    "url": "https://github.com/whitecube/pluton/issues"
   },
-  "homepage": "https://github.com/whiteCube/pluton#readme"
+  "homepage": "https://github.com/whiteCube/pluton#readme",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
 }
