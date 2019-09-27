@@ -57,6 +57,24 @@ You can create subfolders as well and everything will be loaded properly from si
 
 Here's an example, just a little sample:
 
+### With Laravel Mix
+The easiest method is to use the `laravel-mix-pluton` extension, [which can be found here](https://github.com/voidgraphics/laravel-mix-pluton).
+
+If you need to do it manually:
+```js
+let pluton_path = __dirname + '/resources/assets/js/parts';
+
+mix.webpackConfig(webpack => {
+    return {
+        plugins: [
+            new webpack.DefinePlugin({
+                PLUTON_PATH: JSON.stringify(pluton_path)
+            })
+        ]
+    };
+})
+```
+
 ### With regular webpack
 ```js
 // webpack.config.js
@@ -72,20 +90,7 @@ module.exports = {
 };
 ```
 
-### With Laravel Mix
-```js
-let pluton_path = __dirname + '/resources/assets/js/parts';
 
-mix.webpackConfig(webpack => {
-    return {
-        plugins: [
-            new webpack.DefinePlugin({
-                PLUTON_PATH: JSON.stringify(pluton_path)
-            })
-        ]
-    };
-})
-```
 
 ## Methods
 If you need to call a method on one of your classes from wherever you defined your Pluton instance, you can use the `call` method. It will call it on every instance of that class.
