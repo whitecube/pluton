@@ -1,6 +1,6 @@
 {
   "name": "@whitecube/pluton",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A javascript dispatcher that links JS classes to dom elements",
   "main": "pluton.min.js",
   "scripts": {
