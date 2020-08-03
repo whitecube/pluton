@@ -93,6 +93,24 @@ module.exports = {
 
 
 ## Methods
+
+Pluton comes with a few methods that will be very useful when building dynamic applications.
+
+### Setup
+
+The original page's setup is done automatically, but sometimes it is necessary to initialize new components manually. This can be done by calling the `setup` method. Just provide a _root_ element including all the new nodes and Pluton will initialize all the contained components:
+
+```js
+let pluton = new Pluton(),
+    temp = document.createElement('DIV');
+
+temp.innerHTML = '<div class="some-component"><h1>Some fresh HTML</h1><p>Hello world.</p></div>';
+
+pluton.setup(temp);
+```
+
+### Call
+
 If you need to call a method on one of your classes from wherever you defined your Pluton instance, you can use the `call` method. It will call it on every instance of that class.
 
 It works like this: 
