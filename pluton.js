@@ -2,14 +2,18 @@ export default class Pluton {
 
     constructor() {
         this.classes = this.importAll();
+        this.setup();
+    }
+
+    setup(root) {
         for (var className in this.classes) {
-            this.setupComponent(className, this.classes[className]);
+            this.setupComponent(className, this.classes[className], root);
         }
     }
 
-    setupComponent(className, component) {
+    setupComponent(className, component, root) {
         if (!component.selector) return;
-        [].forEach.call(document.querySelectorAll(component.selector), (el) => {
+        [].forEach.call((root||document).querySelectorAll(component.selector), (el) => {
             if (!this[className]) this[className] = [];
             this[className].push(new component(el));
         });
