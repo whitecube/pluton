@@ -5,15 +5,15 @@ It is the main part of our JS workflow at [whitecube](https://www.whitecube.be).
 ## Installation
 
 ### NPM
-`npm i whitecube-pluton`
+`npm i @whitecube/pluton`
 
 ### Yarn
-`yarn add whitecube-pluton`
+`yarn add @whitecube/pluton`
 
 and then in your code, import it:
 
 ```js
-import Pluton from 'whitecube-pluton';
+import Pluton from '@whitecube/pluton';
 ```
 
 ## Usage
@@ -118,6 +118,15 @@ It works like this:
 let pluton = new Pluton();
 pluton.call('.counter', 'reset'); // Without parameter
 pluton.call('.counter', 'increment', 5); // With parameter
+```
+
+### Resetting pluton
+
+If you are doing page transitions with tools like barba.js, you will have to clear the previous pluton class instances and rerun the setup after the new page has been added to the DOM. 
+
+```js
+barba.hooks.afterLeave(() => pluton.clear()); // Remove instances once the leave transition is over
+barba.hooks.after({ next } => pluton.setup(next.container)); // Re-run pluton on the new page
 ```
 
 
