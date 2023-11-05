@@ -10,7 +10,7 @@ export default class Pluton {
     }
 
     async loadModules() {
-        const modules = import.meta.glob('./parts/*.js');
+        const modules = import.meta.glob('../../../resources/js/parts/*.js');
         const promises = [];
         const paths = Object.keys(modules);
 
