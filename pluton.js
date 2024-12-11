@@ -1,6 +1,7 @@
 export default class Pluton {
 
-    constructor() {
+    constructor(modules) {
+        this.modules = modules;
         this.instances = {};
 
         this.loadModules().then(classes => {
@@ -10,7 +11,7 @@ export default class Pluton {
     }
 
     async loadModules() {
-        const modules = import.meta.glob('../../../resources/js/parts/*.js');
+        const modules = this.modules ?? import.meta.glob('../../../resources/js/parts/*.js');
         const promises = [];
         const paths = Object.keys(modules);
 
