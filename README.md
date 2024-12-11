@@ -51,46 +51,13 @@ export default class Counter {
 ## Configuration
 We found that auto-loading is necessary for Pluton to work comfortably, as we like to make our code as modular as possible. We ended up having to `import` a whole lot of files into Pluton manually in each project, and auto-loading fixes that.
 
-In your webpack config, you need to define a constant with the path to the folder that contains all your Pluton classes.  
-
-You can create subfolders as well and everything will be loaded properly from simply specifying the root folder.
-
-Here's an example, just a little sample:
-
-### With Laravel Mix
-The easiest method is to use the `laravel-mix-pluton` extension, [which can be found here](https://github.com/voidgraphics/laravel-mix-pluton).
-
-If you need to do it manually:
+By default the path we look into for finding the JS files is `/resources/js/parts/*.js`, but you can easily override it like so:
 ```js
-let pluton_path = __dirname + '/resources/assets/js/parts';
-
-mix.webpackConfig(webpack => {
-    return {
-        plugins: [
-            new webpack.DefinePlugin({
-                PLUTON_PATH: JSON.stringify(pluton_path)
-            })
-        ]
-    };
-})
+const modules = import.meta.glob('./my-js-dir/my-subdir/*.js');
+new Pluton(modules);
 ```
 
-### With regular webpack
-```js
-// webpack.config.js
-let pluton_path = __dirname + '/resources/assets/js/parts';
-
-module.exports = {
-    // ...
-    plugins: [
-        new webpack.DefinePlugin({
-            PLUTON_PATH: JSON.stringify(pluton_path)
-        })
-    ]
-};
-```
-
-
+(For more infos about `import.meta.glob` refer to [Vite's documentation](https://vite.dev/guide/features.html#glob-import)).
 
 ## Methods
 
