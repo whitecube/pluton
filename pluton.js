@@ -11,20 +11,12 @@ export default class Pluton {
     }
 
     async loadModules() {
-        const modules = this.modules ?? import.meta.glob('../../../resources/js/parts/*.js');
-        const promises = [];
-        const paths = Object.keys(modules);
-
-        for (let index = 0; index < paths.length; index++) {
-            promises.push(modules[paths[index]]());
-        }
-
-        const loaded = await Promise.all(promises);
+        const modules = this.modules ?? import.meta.glob('../../../resources/js/parts/*.js', { eager: true });
 
         return new Promise(resolve => {
             const classes = {};
 
-            loaded.forEach(mod => {
+            Object.values(modules).forEach(mod => {
                 const code = mod.default;
                 classes[code.selector] = code;
             });
@@ -40,12 +32,12 @@ export default class Pluton {
     }
 
     setupComponent(className, component, root) {
-        if (! component.selector) {
+        if (!component.selector) {
             return;
         }
 
-        [].forEach.call((root||document).querySelectorAll(component.selector), (el) => {
-            if (! this.instances[className]) {
+        [].forEach.call((root || document).querySelectorAll(component.selector), (el) => {
+            if (!this.instances[className]) {
                 this.instances[className] = [];
             }
 
