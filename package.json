@@ -1,8 +1,18 @@
 {
   "name": "@whitecube/pluton",
-  "version": "1.0.13",
+  "version": "2.0.0",
   "description": "A javascript dispatcher that links JS classes to dom elements",
-  "main": "pluton.min.js",
+  "type": "module",
+  "main": "pluton.js",
+  "exports": {
+    ".": "./pluton.js"
+  },
+  "files": [
+    "pluton.js"
+  ],
+  "peerDependencies": {
+    "vite": ">=5"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,7 +24,8 @@
     "whitecube",
     "pluton",
     "js",
-    "dispatcher"
+    "dispatcher",
+    "vite"
   ],
   "author": "whitecube",
   "license": "MIT",
