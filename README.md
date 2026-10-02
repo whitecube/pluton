@@ -2,6 +2,9 @@
 A javascript dispatcher that links JS classes to dom elements.  
 It is the main part of our JS workflow at [whitecube](https://www.whitecube.be).
 
+> [!NOTE]  
+> For the legacy Laravel Mix version, refer to the [`1.x`](https://github.com/whitecube/pluton/tree/1.x) branch.
+
 ## Requirements
 
 Pluton relies on [Vite](https://vite.dev)'s `import.meta.glob` to auto-load your files, so it must be used in a project bundled with Vite (5 or later).
