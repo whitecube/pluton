@@ -3,9 +3,9 @@ A javascript dispatcher that links JS classes to dom elements.
 It is the main part of our JS workflow at [whitecube](https://www.whitecube.be).
 
 > [!NOTE]  
-> This is the README for the `webpack/mix` version of this package. 
+> This is the README for the **legacy** `webpack/mix` version of this package. 
 >
-> For the `Vite` version, refer to [this branch](https://github.com/whitecube/pluton/tree/vite).
+> For the Vite version, refer to `master`.
 
 ## Installation
 
