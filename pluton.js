@@ -2,11 +2,14 @@ export default class Pluton {
 
     constructor(modules) {
         this.modules = modules;
+        this.classes = {};
         this.instances = {};
 
-        this.loadModules().then(classes => {
+        this.ready = this.loadModules().then(classes => {
             this.classes = classes;
             this.setup();
+
+            return this;
         });
     }
 
@@ -28,20 +31,24 @@ export default class Pluton {
 
         for (const [path, mod] of entries) {
             const component = mod?.default;
- 
+
             if (!component?.selector) {
                 console.warn(`[Pluton] "${path}" has no default export with a static "selector" and was skipped.`);
                 continue;
             }
- 
+
             classes[component.selector] = component;
         }
 
         return classes;
     }
 
+    clear() {
+        this.instances = {};
+    }
+
     setup(root) {
-        for (var className in this.classes) {
+        for (const className in this.classes) {
             this.setupComponent(className, this.classes[className], root);
         }
     }
@@ -55,15 +62,15 @@ export default class Pluton {
             if (!this.instances[className]) {
                 this.instances[className] = [];
             }
- 
+
             this.instances[className].push(new component(el));
         });
     }
 
     call(className, fn, parameters) {
         if (!this.instances[className]) return;
-        
-        for (var i = this.instances[className].length - 1; i >= 0; i--) {
+
+        for (let i = this.instances[className].length - 1; i >= 0; i--) {
             this.instances[className][i][fn](parameters);
         }
     }

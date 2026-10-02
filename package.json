@@ -13,12 +13,9 @@
   "peerDependencies": {
     "vite": ">=5"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/whitecube/pluton.git"
+    "url": "git+https://github.com/whitecube/pluton.git"
   },
   "keywords": [
     "whitecube",
